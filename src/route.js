@@ -3,12 +3,13 @@ import ProductPreview from "./pages/Product-preview/Product-preview";
 import ProductTable from "./pages/Products-table/Product-table";
 import ProductInfo from "./pages/Product-info/Product-info";
 import Error from "./pages/Error/Error";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate  } from "react-router-dom";
 import PrivateRoute from "./privateRoute";
 
 const AppRouter = () => (
   <BrowserRouter>
     <Routes>
+      <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<Login />} />
 
       <Route element={<PrivateRoute />}>

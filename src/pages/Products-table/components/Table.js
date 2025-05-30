@@ -16,7 +16,6 @@ const Table = ({products, deleteItem, editItem}) => {
         quantity: "",
         price: "", 
         description: "",
-
     }
 
     const handleClickOpen = (id) => {
@@ -58,6 +57,7 @@ const Table = ({products, deleteItem, editItem}) => {
                     <th>Name</th>
                     <th>Quantity</th>
                     <th>Price</th>
+                    <th>Description</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -70,6 +70,7 @@ const Table = ({products, deleteItem, editItem}) => {
                         <td>{product.name}</td>
                         <td>{product.quantity}</td>
                         <td>{product.price}</td>
+                        <td>{product.description}</td>
                         <td className='Edit'><MdEdit onClick={() => openModalForm("Edit product", product) }/></td>
                         <td className='Delete'><FaBoxArchive variant="outlined" 
                         onClick={() => handleClickOpen(product.id)} /></td>

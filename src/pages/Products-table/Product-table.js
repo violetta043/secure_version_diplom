@@ -4,13 +4,14 @@ import ProductButton from "../../components/ProductButton/ProductButton";
 import Table from "./components/Table";
 import { useEffect, useState } from "react";
 import { API_URL } from "../../constants";
+import { useCsrf } from '../../../src/context/csrfContext';
 
 
 const ProductTable = () => {
   const [products, setProducts] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false); 
   const [editId, setEditId] = useState(null); 
- 
+ const csrfToken = useCsrf();
 
   useEffect(() => {
     if(!isLoaded){
@@ -42,7 +43,9 @@ const ProductTable = () => {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
+          "X-CSRF-Token": csrfToken,
         },
+        credentials: "include",
         body: JSON.stringify(productData)
       });
 
@@ -55,7 +58,12 @@ const ProductTable = () => {
   const deleteProduct = async (id, handleClose) => {
     try {
       const response = await fetch(`${API_URL}/posts/${id}`,{
-        method: 'DELETE'
+        method: 'DELETE',
+         headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': csrfToken, // обов'язково
+        },
+        credentials: 'include',
       });
       if (!response.ok) {
         throw new Error("Something went wrong");
@@ -73,7 +81,9 @@ const ProductTable = () => {
         method: 'PUT',
         headers: {
           "Content-Type": "application/json",
+          "X-CSRF-Token": csrfToken,
         },
+        credentials: "include",
         body: JSON.stringify(productData)
       });
 

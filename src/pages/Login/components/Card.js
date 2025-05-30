@@ -4,6 +4,8 @@ import Input from "../../../components/Input/Input";
 import Button from "../../../components/Button/Button";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCsrf } from '../../../context/csrfContext';
+
 
 const Card = () => {
   const [name, setName] = useState("");
@@ -11,6 +13,7 @@ const Card = () => {
   const [isNameEmpty, setIsNameEmpty] = useState(false);
   const [isPasswordEmpty, setIsPasswordEmpty] = useState(false);
   const navigate = useNavigate();
+  const csrfToken = useCsrf();
 
   const validateForm = () => {
     if (!name.trim()) setIsNameEmpty(true);
@@ -34,16 +37,18 @@ const Card = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "X-CSRF-Token": csrfToken,
           },
+          credentials: 'include',
           body: JSON.stringify({
             name: name,
             password: password,
           }),
         });
         const data = await response.json();
-        if (data.token) {
-          localStorage.setItem("jwt", data.token);
-          console.log("Login successful and token saved to localStorage");
+        if (data.message === 'Login successful') {
+          // localStorage.setItem("jwt", data.token);
+          console.log("Login successful");
           navigate("/product-table");
         } else {
           console.log("Login failed:", data.message);
@@ -60,7 +65,7 @@ const Card = () => {
 
       <div className="Input-login">
         <Input
-          label="User Name"
+          label="User Name"a
           name="name"
           onInputChange={(value) => {
             setName(value);
