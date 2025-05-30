@@ -47,7 +47,6 @@ const Card = () => {
         });
         const data = await response.json();
         if (data.message === 'Login successful') {
-          // localStorage.setItem("jwt", data.token);
           console.log("Login successful");
           navigate("/product-table");
         } else {
