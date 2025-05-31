@@ -58,7 +58,7 @@ const ProductTable = () => {
         method: 'DELETE',
          headers: {
           'Content-Type': 'application/json',
-          'X-CSRF-Token': csrfToken, // обов'язково
+          'X-CSRF-Token': csrfToken, 
         },
         credentials: 'include',
       });
