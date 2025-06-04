@@ -1,6 +1,5 @@
 import { useLocation, useNavigate, useEffect } from "react-router-dom";
 import "./Product-info.css";
-import logo_product from "../../assets/logo_products.svg";
 import lenovoImg from "../../assets/lenovo.png";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
@@ -21,9 +20,6 @@ const ProductInfo = () => {
 
   return (
     <div className="Product-info">
-      <div className="Product-logo-wrapper">
-        <img src={logo_product} className="Product-logo" />
-      </div>
       <div className="Product-info-header">
         <IoIosArrowRoundBack size="60px" onClick={handleClick} />
         <div className="Product-info-name"> {product.name}</div>

@@ -60,8 +60,8 @@ const Card = () => {
   };
   return (
     <div className="Card">
-      <img src={logo_login} className="Card-logo" />
-
+      <h1 className="Card-logo">Log in</h1>
+      {/* <text className="Card-logo">Log in</text> */}
       <div className="Input-login">
         <Input
           label="User Name"a

@@ -1,6 +1,8 @@
 .ProductTable{
-    background-attachment: fixed;
+    min-height: 100vh;
     background-color: #44B26F;
+    background-attachment: fixed;
+    padding-top: 31px;
 }
 
 .Product-logo {
@@ -11,5 +13,5 @@
 .Product-button {
     display: flex;
     justify-content: space-between;
-    margin: 31px 77px 0 70px; 
+    margin: 0px 77px 0 70px; 
 }

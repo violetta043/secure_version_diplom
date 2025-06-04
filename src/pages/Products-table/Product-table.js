@@ -93,7 +93,7 @@ const ProductTable = () => {
   
   return (
     <div className="ProductTable">
-      <img src={logo_product} className="Product-logo" />
+      {/* <img src={logo_product} className="Product-logo" /> */}
       <div className="Product-button">
         <ProductButton addItem={addProduct}/>
       </div>
