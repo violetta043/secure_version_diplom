@@ -4,12 +4,14 @@
     height: 670px;
     width: 500px;
     background-color: #F5F5F5;
+    padding-top: 30px;
 }
 
 .Card-logo {
-    margin-top: 80px;
-    margin-left: 135px;
-   
+    display: flex;
+    justify-content: center;
+    color: #44B26F;
+    font-size: 34px;
 }
 
 .Input-login,.Input-password {

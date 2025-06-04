@@ -1,8 +1,9 @@
 .ProductPage{
+    min-height: 100vh;
     background-attachment: fixed;
     background-color: #05BC52;
     font-family: 'Inter-Medium' ;
-    
+    padding-top: 31px;
 }
 .Container{
     max-width: 1149px;

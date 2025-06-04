@@ -27,7 +27,6 @@ const ProductPreview = () => {
 
   return (
     <div className="ProductPage">
-      <img src={logo_product} className="Product-logo" />
       <div className="Container">
         <div className="Cards-wrapper">
           {products.map((product) => (
